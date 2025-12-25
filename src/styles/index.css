@@ -1,0 +1,20 @@
+:root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    --dark-color-main: #222020de;
+    --light-color-main: #f7f9fb;
+    --border-color: #31708e;
+    --item-color: #8fc1e3;
+    --button-color: #5085a5;
+    --button-focus-color: #31708e;
+
+    color: var(--dark-color-main);
+    background-color: var(--light-color-main);
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

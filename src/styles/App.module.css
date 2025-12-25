@@ -1,0 +1,15 @@
+.container {
+    margin: 0 auto;
+    height: 100vh;
+    min-width: 220px;
+    max-width: 950px;
+}
+
+.button-list {
+    margin-top: 2rem;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 4rem;
+}

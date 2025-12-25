@@ -1,0 +1,35 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    min-height: 50vh;
+}
+
+.title {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.center {
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.list_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 10px 10px 10px 20px;
+}
+
+.list_item:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.list_item:nth-child(2n) {
+    background-color: var(--item-color);
+}
