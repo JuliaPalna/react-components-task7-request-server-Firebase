@@ -8,7 +8,7 @@ import { useCreatNewTodo } from '../hooks';
 import styles from '../styles/App.module.css';
 
 export const App = () => {
-    const [todos, setTodos] = useState({});
+    const [todos, setTodos] = useState([]);
     const [filtredTodos, setFiltredTodos] = useState(todos);
     const [isLoading, setIsLoading] = useState(false);
     const { isCreating, onAddNewTodo } = useCreatNewTodo();
@@ -18,9 +18,23 @@ export const App = () => {
 
         const todosDataDaseRef = ref(dataBase, 'todos');
         return onValue(todosDataDaseRef, (snapshot) => {
-            const loadedTodos = snapshot.val() || {};
+            const loadedTodos = snapshot.val();
 
-            setTodos(loadedTodos);
+            if (loadedTodos) {
+                const arrayTodos = Object.entries(loadedTodos).map(
+                    ([key, data]) => {
+                        return {
+                            ...data,
+                            id: key,
+                        };
+                    },
+                );
+
+                setTodos(arrayTodos);
+            } else {
+                setTodos([]);
+            }
+
             setIsLoading(false);
         });
     }, []);
@@ -32,7 +46,6 @@ export const App = () => {
     const onSortTodos = () => {
         const sortedTodos = [...todos];
         sortedTodos.sort((a, b) => a.title.localeCompare(b.title));
-
         setFiltredTodos(sortedTodos);
     };
 

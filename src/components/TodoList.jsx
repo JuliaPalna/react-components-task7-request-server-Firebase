@@ -12,7 +12,7 @@ export const TodoList = ({ todos, setTodos, isLoading }) => {
                 ) : todos.length === 0 ? (
                     <p className={styles.center}>Задач нет</p>
                 ) : (
-                    Object.entries(todos).map(([id, { title }]) => {
+                    todos.map(({ id, title }) => {
                         return (
                             <li
                                 key={id}
